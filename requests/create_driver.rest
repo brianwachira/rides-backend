@@ -1,0 +1,9 @@
+POST http://localhost:3002/driver 
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ1OTYyMH0.2wkzOEY9W9n3QwaLxzwU86v527uywtNumNcuns-ADhs
+
+{
+    "name": "lupotent", 
+    "phonenumber": "+256784678"
+
+}
