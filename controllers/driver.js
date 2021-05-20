@@ -10,6 +10,20 @@ const getTokenFrom = request => {
     return null
   }
 
+driverRouter.get('/all', async (request, response) => {
+
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+
+  if(!token || !decodedToken.email) {
+      return response.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const drivers = await Driver.find({})
+
+  response.json(drivers)
+})
+
 driverRouter.post('/', async (request, response) => {
     const body = request.body
     const token = getTokenFrom(request)
@@ -28,5 +42,24 @@ driverRouter.post('/', async (request, response) => {
         
     response.json(savedDriver)
 })
+
+driverRouter.post('/:id/suspend', async (request, response) => {
+
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+
+  if(!token || !decodedToken.email) {
+      return response.status(401).json({ error: 'token missing or invalid' })
+  }
+  
+  const filter = { _id: request.params.id};
+  const update = { suspended : true}
+
+  await Driver.findOneAndUpdate(filter, update)
+
+  response.status(204).end()
+
+})
+
 
 module.exports = driverRouter
