@@ -1,0 +1,5 @@
+GET http://localhost:3002/passenger/all/ 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
+
+
+
