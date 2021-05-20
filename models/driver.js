@@ -1,14 +1,17 @@
 const mongoose = require('mongoose')
-
+const uniqueValidator = require('mongoose-unique-validator')
 const driverSchema = mongoose.Schema({
     name: {
         type: String,
         
     },
-    phoneNumber: String,
+    phoneNumber: {
+        type:String,
+        unique: true
+    },
     suspended: {
         type: Boolean,
-        default: 'false'
+        default: false
     },
     rides: [
         {
@@ -17,6 +20,8 @@ const driverSchema = mongoose.Schema({
         }
     ]
 })
+
+driverSchema.plugin(uniqueValidator)
 
 driverSchema.set('toJSON', {
     transform: (document, returnedObject) => {
