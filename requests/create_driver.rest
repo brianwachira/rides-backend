@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
 {
-    "name": "lupotent", 
-    "phoneNumber": "+256784678"
+    "name": "makinen", 
+    "phoneNumber": "+256784689"
 
 }
