@@ -1,9 +1,9 @@
 POST http://localhost:3002/driver 
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ1OTYyMH0.2wkzOEY9W9n3QwaLxzwU86v527uywtNumNcuns-ADhs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
 {
     "name": "lupotent", 
-    "phonenumber": "+256784678"
+    "phoneNumber": "+256784678"
 
 }
