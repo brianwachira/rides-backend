@@ -61,5 +61,23 @@ driverRouter.post('/:id/suspend', async (request, response) => {
 
 })
 
+driverRouter.delete('/:id/suspend', async (request, response) => {
+
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+
+  if(!token || !decodedToken.email) {
+      return response.status(401).json({ error: 'token missing or invalid' })
+  }
+  
+  const filter = { _id: request.params.id};
+  const update = { suspended : false}
+
+  await Driver.findOneAndUpdate(filter, update)
+
+  response.status(204).end()
+
+})
+
 
 module.exports = driverRouter

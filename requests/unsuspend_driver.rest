@@ -1,0 +1,2 @@
+DELETE http://localhost:3002/driver/60a6090f75782e27d47afd07/suspend
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
