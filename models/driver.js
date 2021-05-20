@@ -5,7 +5,7 @@ const driverSchema = mongoose.Schema({
         type: String,
         
     },
-    phone: String,
+    phoneNumber: String,
     suspended: {
         type: Boolean,
         default: 'false'
