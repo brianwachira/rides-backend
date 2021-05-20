@@ -12,7 +12,7 @@ const getTokenFrom = request => {
 
 driverRouter.post('/', async (request, response) => {
     const body = request.body
-    const token = getTokenFrom
+    const token = getTokenFrom(request)
     const decodedToken = jwt.verify(token, process.env.SECRET)
 
     if(!token || !decodedToken.email) {
@@ -20,13 +20,13 @@ driverRouter.post('/', async (request, response) => {
     }
     const driver = new Driver({
         name : body.name,
-        phone : body.phone,
+        phoneNumber : body.phoneNumber,
     })
 
-    const savedDriver = await driver.save(
-    
+    const savedDriver = await driver.save()
+
+        
     response.json(savedDriver)
-    )
 })
 
 module.exports = driverRouter
