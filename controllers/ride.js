@@ -22,15 +22,27 @@ rideRouter.post('/:rideId/:driverId', async (request, response) => {
         return response.status(401).json({ error: 'token missing or invalid' })
     }
   
-    const passenger = await Passenger.findById(request.params.rideId)
-    const driver = await Driver.findById(request.params.driverId)
+    const passenger = await Passenger.findById(request.params.rideId).populate(
+      { 
+        path: 'ride',
+        match: { 
+          status : { 
+            $eq : 'ongoing'
+          } 
+        } 
+      }
+    )
+    console.log(passenger)
 
-    const ride = new Ride({
-        pickupPoint: body.pickupPoint,
-        destinationPoint: body.destinationPoint,
-        status: 'ongoing',
-        passenger: passenger,
-        driver : driver
+    // const driver = await Driver.findById(request.params.driverId)
 
-    })
+    // const ride = new Ride({
+    //     pickupPoint: body.pickupPoint,
+    //     destinationPoint: body.destinationPoint,
+    //     status: 'ongoing',
+    //     passenger: passenger,
+    //     driver : driver
+
+    // })
 })
+module.exports = rideRouter
