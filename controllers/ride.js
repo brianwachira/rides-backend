@@ -75,6 +75,10 @@ rideRouter.post('/:rideId/:driverId', async (request, response) => {
   const passenger = await Passenger.findById(request.params.rideId)
   const driver = await Driver.findById(request.params.driverId)
 
+  if(driver.suspended === true) {
+    return response.status(401).json({ error: 'driver is currently suspended'})
+  }
+
   const ride = new Ride({
       pickupPoint: body.pickupPoint,
       destinationPoint: body.destinationPoint,
