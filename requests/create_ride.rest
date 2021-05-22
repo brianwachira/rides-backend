@@ -1,0 +1,8 @@
+POST http://localhost:3002/ride/60a8c105d6fdda20d1773c57/60a8c195d6fdda20d1773c58
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
+
+{ 
+    "pickupPoint": [123.7,99.98],
+    "destinationPoint": [130.7,99.98]
+}
