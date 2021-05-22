@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken')
 const rideRouter = require('express').Router()
 const Ride = require('../models/ride')
@@ -13,20 +12,7 @@ const getTokenFrom = request => {
     return null
   }
 
-rideRouter.get('/all', async (request, response) => {
 
-  const token = getTokenFrom(request)
-  const decodedToken = jwt.verify(token, process.env.SECRET)
-
-  if(!token || !decodedToken.email) {
-      return response.status(401).json({ error: 'token missing or invalid' })
-  }
-
-  const rides = await Ride.find({})
-
-  response.json(rides)
-
-})
 
 rideRouter.post('/:rideId/stop', async (request,response) => {
 
@@ -51,6 +37,7 @@ rideRouter.post('/:rideId/stop', async (request,response) => {
 
 rideRouter.post('/:rideId/:driverId', async (request, response) => {
 
+  const body = request.body
   const token = getTokenFrom(request)
   const decodedToken = jwt.verify(token, process.env.SECRET)
 
@@ -60,14 +47,14 @@ rideRouter.post('/:rideId/:driverId', async (request, response) => {
 
   const passengerOnRide = await Ride.find({ passenger : request.params.rideId, status : 'ongoing'})
 
-  if(passengerOnRide){
+  if(passengerOnRide.length > 0){
     return response.status(401).json({ error: 'passenger ride is ongoing' })
 
   }
 
   const driverOnRide = await Ride.find({ driver : request.params.driverId, status : 'ongoing'})
 
-  if(driverOnRide){
+  if(driverOnRide.length > 0){
     return response.status(401).json({ error: 'driver ride is ongoing' })
 
   }
