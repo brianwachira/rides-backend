@@ -21,7 +21,7 @@ passengerRouter.get('/all', async (request, response) => {
         return response.status(401).json({ error: 'token missing or invalid' })
     }
 
-    const passengers = await Passenger.find({})
+    const passengers = await Passenger.find({}).populate('rides', {pickupPoint: 1, destinationPoint: 1,driver : 1, status: 1})
 
     response.json(passengers)
 })

@@ -18,7 +18,7 @@ ridesRouter.get('/all', async (request, response) => {
         return response.status(401).json({ error: 'token missing or invalid' })
     }
   
-    const allRides = await Rides.find({}).populate( 'passenger driver', { name:1, phoneNumber: 1})
+    const allRides = await Rides.find({}).populate( 'passenger driver', { id: 1, name:1, phoneNumber: 1})
   
     response.json(allRides)
   
@@ -33,7 +33,7 @@ ridesRouter.get("/ongoing", async (request, response) => {
         return response.status(401).json({ error: 'token missing or invalid' })
     }
 
-    const ongoingRides = await Rides.find({ status : 'ongoing'})
+    const ongoingRides = await Rides.find({ status : 'ongoing'}).populate( 'passenger driver', { id: 1, name:1, phoneNumber: 1})
 
     response.json(ongoingRides)
 })
@@ -48,7 +48,7 @@ ridesRouter.get("/done", async (request,response) => {
     }
 
 
-    const doneRides = await Rides.find({ status : 'done'})
+    const doneRides = await Rides.find({ status : 'done'}).populate( 'passenger driver', { id: 1, name:1, phoneNumber: 1})
 
     response.json(doneRides)
 

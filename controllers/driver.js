@@ -19,9 +19,9 @@ driverRouter.get('/all', async (request, response) => {
       return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const drivers = await Driver.find({})
+  const drivers = await Driver.find({}).populate('rides', {pickupPoint: 1, destinationPoint: 1, passenger : 1, status: 1})
 
-  response.json(drivers)
+  response.json(drivers.map(driver => driver.toJSON()))
 })
 
 driverRouter.post('/', async (request, response) => {
