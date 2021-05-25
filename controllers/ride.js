@@ -28,7 +28,7 @@ rideRouter.post('/:rideId/stop', async (request,response) => {
 
   const stoppedRide = await Ride.findOneAndUpdate(filter,update, {
     new: true
-  })
+  }).populate( 'passenger driver', { id: 1, name:1, phoneNumber: 1})
 
   response.json(stoppedRide.toJSON())
 })
