@@ -45,23 +45,20 @@ rideRouter.post('/:rideId/:driverId', async (request, response) => {
       return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const passengerOnRide = await Ride.find({ passenger : request.params.rideId, status : 'ongoing'})
+  const passenger = await Passenger.findById(request.params.rideId).populate('rides', {id:1, status:1})
+  const passengerOnRide = passenger['rides'].some(ride => ride['status'] === 'ongoing')
 
-  if(passengerOnRide.length > 0){
+  if (passengerOnRide === true){
     return response.status(401).json({ error: 'passenger ride is ongoing' })
-
   }
+  
+  const driver = await Driver.findById(request.params.driverId).populate('rides', {id:1, status:1})
 
-  const driverOnRide = await Ride.find({ driver : request.params.driverId, status : 'ongoing'})
+  const driverOnRide = driver['rides'].some(ride => ride['status'] === 'ongoing')
 
-  if(driverOnRide.length > 0){
-    return response.status(401).json({ error: 'driver ride is ongoing' })
-
+  if (driverOnRide === true){
+    return response.status(401).json({ error: 'passenger ride is ongoing' })
   }
-
-  const passenger = await Passenger.findById(request.params.rideId)
-  const driver = await Driver.findById(request.params.driverId)
-
   if(driver.suspended === true) {
     return response.status(401).json({ error: 'driver is currently suspended'})
   }
