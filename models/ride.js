@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
-mongoose.set('debug', true)
+//mongoose.set('debug', true)
 const rideSchema = mongoose.Schema({
     pickupPoint: {
         type: [Number],
