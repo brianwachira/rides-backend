@@ -1,8 +1,8 @@
-POST http://localhost:3002/ride/60add9ea4bd2491e7f144295/60a6090f75782e27d47afd07
+POST http://localhost:3002/ride/60abe2235b2fb915f74da83e/60ad4896b29367144dd91c30
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
 { 
     "pickupPoint": [123.7,199.98],
-    "destinationPoint": [130.7,79.98]
+    "destinationPoint": [132.7,79.98]
 }
