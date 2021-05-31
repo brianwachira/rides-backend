@@ -55,6 +55,8 @@ driver, this can be pass in the API).
     MONGODB_URI=mongodb+srv://fullstack:<YOUR-PASSWORD>@cluster0.dk206.mongodb.net/ride-app?retryWrites=true&w=majority
     PORT=3002
     ```
+- Run ``` npm install``` . This will install all the dependencies needed for the project
+
 - Run ``` npm run dev```
 
 ## Example Endpoints
