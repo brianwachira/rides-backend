@@ -3,51 +3,56 @@
 #### By [Brian Wachira](https://www.github.com/brianwachira)
 
 ## Description
-This is an excerise to build  a simple API that uses an admin user, which can be hard coded, there is
+This is a technical assesment to build  a simple API that uses an admin user, which can be hard coded, there is
 no need to manage users roles, that can create and suspend drivers and monitor ongoing rides.
 Also to simulate passengers calling drivers, create some endpoints to register passengers and
 rides simulation (no geolocation calculation is necessary to link the passenger with the best
 driver, this can be pass in the API).
 ## Link to live site
-[Here you go ](https://mighty-hamlet-09070.herokuapp.com/)
-
+<!-- [Here you go ](https://mighty-hamlet-09070.herokuapp.com/) -->
+Kindly allow me to fix some bugs
 
 ## Prerequites
     - NodeJS required
 
 ## Set-up and Installation
-    - Clone the Repository
-    - Go to https://www.mongodb.com/cloud/atlas
-    - Create  new cluster
+- Clone the Repository
+- Go to https://www.mongodb.com/cloud/atlas
+- Create  new cluster
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster1.png" alt="cluster 1"></a>
 <br/>
-    - Choose AWS provider and any free-tier acaiable data center
+- Choose AWS provider and any free-tier data center
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster2.png" alt="cluster 1"></a>
 <br/>  
-    - use the database access tab for creating user credentials for the database. 
-    Please note that these are not the same credentials you use for logging into MongoDB Atlas. 
-    These will be used for your application to connect to the database.
+- use the database access tab for creating user credentials for the database. 
+Please note that these are not the same credentials you use for logging into MongoDB Atlas. 
+These will be used for your application to connect to the database.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster3.png" alt="cluster 1"></a>
-<br/>- grant the user with permissions to read and write to the databases.
+<br/>
+- grant the user with permissions to read and write to the databases.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster5.png" alt="cluster 1"></a>    
-<br/>- Define the IP addresses that are allowed access to the database.
+<br/>
+- Define the IP addresses that are allowed access to the database.
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster6.png" alt="cluster 1"></a> 
-<br/>- For the sake of simplicity we will allow access from all IP addresses: 
+<br/>
+- For the sake of simplicity we will allow access from all IP addresses: 
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster7.png" alt="cluster 1"></a> 
-<br/>- Finally we are ready to connect to our database. Start by clicking connect:
+<br/>
+- Finally we are ready to connect to our database. Start by clicking connect:
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster8.png" alt="cluster 1"></a> 
-<br/>- Choose Connect your application:
+<br/>
+- Choose ```  Connect your application:``` 
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster9.png" alt="cluster 1"></a> 
 <br/>The view displays the MongoDB URI, which is the address of the database that we will supply to the MongoDB client library we will add to our application.
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster10.png" alt="cluster 1"></a> 
 <br/>The address looks like this:
-```mongodb+srv://fullstack:<PASSWORD>@cluster0-ostce.mongodb.net/<DB-NAME>?retryWrites=true```
+```mongodb+srv://<USERNAME>:<PASSWORD>@cluster0-ostce.mongodb.net/<DB-NAME><DB_NAME>?retryWrites=true```
 
 - Create a .env file in the root of your project
 - Use the following syntax to save mongoDB URI as shown in env.example
@@ -62,6 +67,11 @@ driver, this can be pass in the API).
 ## Example Endpoints
 
 ### login
+```
+POST /login
+
+```
+#### Example
 ```
 POST http://localhost:3002/login 
 Content-Type: application/json
@@ -81,6 +91,11 @@ Content-Type: application/json
 ```
 
 ### create driver
+```
+POST /driver
+
+```
+#### Example
 ```
 POST http://localhost:3002/driver 
 Content-Type: application/json
@@ -106,6 +121,11 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 ### suspend driver
 ```
+POST /driver/<driver-id>/suspend
+
+```
+#### Example
+```
 POST http://localhost:3002/driver/60b42a18e0dcd92c8989d402/suspend
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
@@ -120,6 +140,10 @@ Connection: close
 
 ### unsuspend driver
 ```
+DELETE /driver/<driver-id>/suspend
+```
+#### Example
+```
 POST http://localhost:3002/driver/60b42a18e0dcd92c8989d402/unsuspend
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
@@ -133,6 +157,10 @@ Connection: close
 ```
 
 ### create passenger
+```
+POST /passanger
+```
+#### Example
 ```
 POST http://localhost:3002/passenger 
 Content-Type: application/json
@@ -157,6 +185,10 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 
 ### create ride
+```
+POST /ride/<passanger-id>/<driver-id>
+```
+#### Example
 ```
 POST http://localhost:3002/ride/60b42c3fe0dcd92c8989d404/60b42c5de0dcd92c8989d406
 Content-Type: application/json
@@ -187,6 +219,10 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 
 ### stop ride
+```
+POST /ride/<ride-id>/stop
+```
+#### Example
 ```
 POST http://localhost:3002/ride/60b42c72e0dcd92c8989d407/stop
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
@@ -225,6 +261,10 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 ### ongoing rides
 ```
+GET /rides/ongoing
+```
+#### Example
+```
 GET http://localhost:3002/rides/ongoing/ 
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
@@ -256,9 +296,6 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 ```
 
-## Known bugs
- - The User Interface is not lively and presentable. I am planning to work on that.
-
 ## Technologies used
  - <b>Express</b> : NodeJS-based framework for buidling API'S [https://expressjs.com/ ](https://expressjs.com/)
  - <b>MongoDB</b> : It is a document object database [https://www.mongodb.com/ ](https://www.mongodb.com/)
@@ -266,6 +303,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
  - <b>Jsonwebtoken</b>: A library that allows one to create Json Web Tokens. [https://www.npmjs.com/package/jsonwebtoken ](https://www.npmjs.com/package/jsonwebtoken )
  - <b>Dotenv</b>: A package that loads environment variables from a .env file into process.env. [https://www.npmjs.com/package/dotenv](https://www.npmjs.com/package/dotenv)
  - <b>Cors</b> : package for providing a Connect/Express middleware that can be used to enable CORS with various options.[ https://www.npmjs.com/package/cors]( https://www.npmjs.com/package/cors)
+
+## Known bugs
+ - The database transactions (especially create) need to be optimized 
 
 ## Support and contact details
 Contact me on brianwachira7@gmail.com for any comments, reviews or advice.
