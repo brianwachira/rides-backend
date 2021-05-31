@@ -9,7 +9,7 @@ Also to simulate passengers calling drivers, create some endpoints to register p
 rides simulation (no geolocation calculation is necessary to link the passenger with the best
 driver, this can be pass in the API).
 ## Link to live site
-[Here you go :wink:](https://mighty-hamlet-09070.herokuapp.com/)
+[Here you go ](https://mighty-hamlet-09070.herokuapp.com/)
 
 
 ## Prerequites
