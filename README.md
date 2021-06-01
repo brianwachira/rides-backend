@@ -8,9 +8,8 @@ no need to manage users roles, that can create and suspend drivers and monitor o
 Also to simulate passengers calling drivers, create some endpoints to register passengers and
 rides simulation (no geolocation calculation is necessary to link the passenger with the best
 driver, this can be pass in the API).
-## Link to live site
-<!-- [Here you go ](https://mighty-hamlet-09070.herokuapp.com/) -->
-Kindly allow me to fix some bugs
+## Link to live client site consuming the api
+[Here you go ](https://rides-dashboard.herokuapp.com/)
 
 ## Prerequites
     - NodeJS required
@@ -73,7 +72,7 @@ POST /login
 ```
 #### Example
 ```
-POST http://localhost:3002/login 
+POST http://localhost:3002/api/login 
 Content-Type: application/json
 
 {
@@ -97,7 +96,7 @@ POST /driver
 ```
 #### Example
 ```
-POST http://localhost:3002/driver 
+POST http://localhost:3002/api/driver 
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
@@ -126,7 +125,7 @@ POST /driver/<driver-id>/suspend
 ```
 #### Example
 ```
-POST http://localhost:3002/driver/60b42a18e0dcd92c8989d402/suspend
+POST http://localhost:3002/api/driver/60b42a18e0dcd92c8989d402/suspend
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
 #### response
@@ -144,7 +143,7 @@ DELETE /driver/<driver-id>/suspend
 ```
 #### Example
 ```
-POST http://localhost:3002/driver/60b42a18e0dcd92c8989d402/unsuspend
+POST http://localhost:3002/api/driver/60b42a18e0dcd92c8989d402/unsuspend
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
 #### response
@@ -162,7 +161,7 @@ POST /passanger
 ```
 #### Example
 ```
-POST http://localhost:3002/passenger 
+POST http://localhost:3002/api/passenger 
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
@@ -190,7 +189,7 @@ POST /ride/<passanger-id>/<driver-id>
 ```
 #### Example
 ```
-POST http://localhost:3002/ride/60b42c3fe0dcd92c8989d404/60b42c5de0dcd92c8989d406
+POST http://localhost:3002/api/ride/60b42c3fe0dcd92c8989d404/60b42c5de0dcd92c8989d406
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
@@ -224,7 +223,7 @@ POST /ride/<ride-id>/stop
 ```
 #### Example
 ```
-POST http://localhost:3002/ride/60b42c72e0dcd92c8989d407/stop
+POST http://localhost:3002/api/ride/60b42c72e0dcd92c8989d407/stop
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 
 ```
@@ -265,7 +264,7 @@ GET /rides/ongoing
 ```
 #### Example
 ```
-GET http://localhost:3002/rides/ongoing/ 
+GET http://localhost:3002/api/rides/ongoing/ 
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY
 ```
 #### response
