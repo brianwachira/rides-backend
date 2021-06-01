@@ -1,4 +1,4 @@
-POST http://localhost:3002/ride/60b42c3fe0dcd92c8989d404/60b42c5de0dcd92c8989d406
+POST http://localhost:3002/api/ride/60b42c3fe0dcd92c8989d404/60b42c5de0dcd92c8989d406
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 

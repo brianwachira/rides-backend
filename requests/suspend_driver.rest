@@ -1,2 +1,2 @@
-POST http://localhost:3002/driver/60b42a18e0dcd92c8989d402/suspend
+POST http://localhost:3002/api/driver/60b42a18e0dcd92c8989d402/suspend
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5NDM3N30.CUHYqrlkN8XRBebnGVZTL9MWPH_SQW3-HCIIkRtB9jY

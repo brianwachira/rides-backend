@@ -1,9 +1,9 @@
-POST http://localhost:3002/passenger 
+POST http://localhost:3002/api/passenger 
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImlhdCI6MTYyMTQ5MTgxNH0.ZWP0EgrFdivnvqSflrwNU14MX8E-81S3eRPDcqpf7Is
 
 {
     "name": "makinen", 
-    "phoneNumber": "+256784689"
+    "phoneNumber": "+2567846896"
 
 }
