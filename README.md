@@ -20,23 +20,28 @@ driver, this can be pass in the API).
 - Create  new cluster
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster1.png" alt="cluster 1"></a>
 <br/>
+
 - Choose AWS provider and any free-tier data center
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster2.png" alt="cluster 1"></a>
 <br/>  
+
 - use the database access tab for creating user credentials for the database. 
 Please note that these are not the same credentials you use for logging into MongoDB Atlas. 
 These will be used for your application to connect to the database.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster3.png" alt="cluster 1"></a>
 <br/>
+
 - grant the user with permissions to read and write to the databases.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster5.png" alt="cluster 1"></a>    
 <br/>
+
 - Define the IP addresses that are allowed access to the database.
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster6.png" alt="cluster 1"></a> 
 <br/>
+
 - For the sake of simplicity we will allow access from all IP addresses: 
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster7.png" alt="cluster 1"></a> 
@@ -45,6 +50,7 @@ These will be used for your application to connect to the database.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster8.png" alt="cluster 1"></a> 
 <br/>
+
 - Choose ```  Connect your application:``` 
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster9.png" alt="cluster 1"></a> 
@@ -53,15 +59,28 @@ These will be used for your application to connect to the database.
 <br/>The address looks like this:
 ```mongodb+srv://<USERNAME>:<PASSWORD>@cluster0-ostce.mongodb.net/<DB-NAME><DB_NAME>?retryWrites=true```
 
+- Copy the Address
 - Create a .env file in the root of your project
 - Use the following syntax to save mongoDB URI as shown in env.example
     ``` 
-    MONGODB_URI=mongodb+srv://fullstack:<YOUR-PASSWORD>@cluster0.dk206.mongodb.net/ride-app?retryWrites=true&w=majority
+    MONGODB_URI=MONGODB_URL
     PORT=3002
+    SECRET=SECRET_NUMBER
+
     ```
+- Replace ``` MONGODB_URL ``` with the address you got from mongoDB cloud atlas
+- Replace ``` SECRET_NUMBER ``` with an integer. This will be used when generating a JWT token
 - Run ``` npm install``` . This will install all the dependencies needed for the project
 
 - Run ``` npm run dev```
+- If you used vscode as your text editor, you can test the endpoints by using [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+- <br/> Install the extension in your text editor by going to Extensions tab on your vscode, then search ** REST CLIENT ** ** by Huachao Mao **
+- <br/> On the project, navigate to requests folder. Open any of the files, eg ** create_driver.rest ** and a button will pop up with the label **send request**
+![SEND REQUEST]([image.jpg](https://github.com/brianwachira/rides-backend/blob/main/assets/rest1.png))
+
+<br/>The response is as shown in the image below
+
+![SEND REQUEST]([image.jpg](https://github.com/brianwachira/rides-backend/blob/main/assets/rest2.png))
 
 ## Example Endpoints
 
