@@ -81,7 +81,7 @@ These will be used for your application to connect to the database.
 
 <br/>The response is as shown in the image below
 
-![SEND REQUEST]((https://github.com/brianwachira/rides-backend/blob/main/assets/rest2.png)
+![SEND REQUEST](https://github.com/brianwachira/rides-backend/blob/main/assets/rest2.png)
 
 ## Example Endpoints
 
