@@ -46,6 +46,7 @@ These will be used for your application to connect to the database.
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster7.png" alt="cluster 1"></a> 
 <br/>
+
 - Finally we are ready to connect to our database. Start by clicking connect:
 <br/>
 <br/><a href="https://www.mongodb.com/cloud/atlas" target="_blank"><img src="https://github.com/brianwachira/rides-backend/blob/main/assets/cluster8.png" alt="cluster 1"></a> 
@@ -69,18 +70,18 @@ These will be used for your application to connect to the database.
 
     ```
 - Replace ``` MONGODB_URL ``` with the address you got from mongoDB cloud atlas
-- Replace ``` SECRET_NUMBER ``` with an integer. This will be used when generating a JWT token
+- Replace ``` SECRET_NUMBER ``` with an integer eg *10* . This will be used when generating a JWT token
 - Run ``` npm install``` . This will install all the dependencies needed for the project
 
 - Run ``` npm run dev```
 - If you used vscode as your text editor, you can test the endpoints by using [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
 - <br/> Install the extension in your text editor by going to Extensions tab on your vscode, then search ** REST CLIENT ** ** by Huachao Mao **
 - <br/> On the project, navigate to requests folder. Open any of the files, eg ** create_driver.rest ** and a button will pop up with the label **send request**
-![SEND REQUEST]([image.jpg](https://github.com/brianwachira/rides-backend/blob/main/assets/rest1.png))
+![SEND REQUEST](https://github.com/brianwachira/rides-backend/blob/main/assets/rest1.png)
 
 <br/>The response is as shown in the image below
 
-![SEND REQUEST]([image.jpg](https://github.com/brianwachira/rides-backend/blob/main/assets/rest2.png))
+![SEND REQUEST]((https://github.com/brianwachira/rides-backend/blob/main/assets/rest2.png)
 
 ## Example Endpoints
 
